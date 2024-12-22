@@ -30,6 +30,25 @@ python make_barplot_codon.py SARS-CoV-2_whole_genome_output.csv SARS-CoV-2_separ
 
 The results are as follows:
 
-[codon_barplot.pdf](https://github.com/user-attachments/files/18220874/codon_barplot.pdf)
+![codon_barplot.pdf](https://github.com/user-attachments/files/18220880/codon_barplot.pdf)
+
+5. Write a program that converts the codon counts from the above two CSV files to amino acid counts using the genetic code. Then make a similar barplot comparing amino acid counts between the two files.
+
+The program runs like this:
 
 
+```sh
+python make_barplot_aa.py SARS-CoV-2_whole_genome_output.csv SARS-CoV-2_separate_genes_output.csv
+```
+
+The results are as follows:
+
+![amino_acid_barplot.pdf](https://github.com/user-attachments/files/18220886/amino_acid_barplot.pdf)
+
+6. Where is the largest discrepancy in amino acid counts between the coding sequences and the whole genome sequence, and why?
+
+> The largest discrepancy in amino acid counts between the whole genome sequence and the coding sequences is due to stop codons. In the file containing only coding sequences, there are 12 stop codons, each corresponding to one of the 12 coding gene sequences. In contrast, the whole genome sequence contains 774 stop codons, which is significantly more than those found in the coding sequences.
+
+> The main reason for this discrepancy lies in differences in reading frames. For the whole genome sequence, translation could start at any nucleotide (1st nucleotide in this case), leading to random frame shifts. This allows many sequences to be misinterpreted as stop codons, even in non-coding regions. However, in coding sequences, each sequence begins with a start codon (ATG) and ends with a stop codon (TAA, TAG, or TGA), following a pattern of start codon–protein-coding region–stop codon. Because the reading frame is fixed in coding sequences, stop codons only appear once in each coding sequence. The slight difference in how frames are formed has a huge impact on the codon counts across the genome. 
+
+> In the whole genome, many regions are non-coding, and the identification of stop codons within these regions does not have meaningful biological information. Only the coding regions of the genome are transcribed and translated into functional proteins. 
