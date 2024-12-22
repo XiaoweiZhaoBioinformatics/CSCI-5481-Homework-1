@@ -1,7 +1,0 @@
-7. Where is the largest discrepancy in amino acid counts between the coding sequences and the whole genome sequence, and why?
-
-The largest discrepancy in amino acid counts between the whole genome sequence and the coding sequences is due to stop codons. In the file containing only coding sequences, there are 12 stop codons, each corresponding to one of the 12 coding gene sequences. In contrast, the whole genome sequence contains 774 stop codons, which is significantly more than those found in the coding sequences.
-
-The main reason for this discrepancy lies in differences in reading frames. For the whole genome sequence, translation could start at any nucleotide (1st nucleotide in this case), leading to random frame shifts. This allows many sequences to be misinterpreted as stop codons, even in non-coding regions. However, in coding sequences, each sequence begins with a start codon (ATG) and ends with a stop codon (TAA, TAG, or TGA), following a pattern of start codon–protein-coding region–stop codon. Because the reading frame is fixed in coding sequences, stop codons only appear once in each coding sequence. The slight difference in how frames are formed has a huge impact on the codon counts across the genome. 
-
-In the whole genome, many regions are non-coding, and the identification of stop codons within these regions does not have meaningful biological information. Only the coding regions of the genome are transcribed and translated into functional proteins. 
